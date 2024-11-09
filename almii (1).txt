@@ -1,0 +1,233 @@
+.model small
+.stack 100h
+.data 
+n DB      'ALMEERAH FIRDOUSE$'
+dob DB    '19/04/2005$'  
+email DB  'almiia2gmail.com$'
+cont  DB  '03192635512$'
+edu   DB  'matric computer science, Dr A q Khan  fsc ICS , Dr Aq Khan BSCS Riphah University$'
+exp   DB  'COMPUTER TEACHER  n.e.s.t academy$'
+hobby DB  'reading writing  swimming $'
+ref   DB  'will be printed on demand $'
+
+
+
+
+
+
+
+.code
+main proc 
+ mov ax,@data
+ mov ds,ax
+ mov dl,n
+ mov dx,offset n
+ mov ah,9
+ int 21h
+          mov dl, 10
+          mov ah ,2
+          int 21h 
+                     mov dl, 13
+          mov ah ,2
+          int 21h
+  
+  mov ax,@data
+ mov ds,ax
+ mov dl,dob
+ mov dx,offset dob
+ mov ah,9
+ int 21h 
+ 
+          mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+          
+
+  mov ax,@data
+ mov ds,ax
+ mov dl,email
+ mov dx,offset email
+ mov ah,9
+ int 21h 
+ 
+ 
+         mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+ 
+ 
+ 
+ 
+  mov ax,@data
+ mov ds,ax
+ mov dl,cont
+ mov dx,offset cont
+ mov ah,9
+ int 21h 
+ 
+ 
+           mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+ 
+ 
+ 
+  mov ax,@data
+ mov ds,ax
+ mov dl,edu
+ mov dx,offset edu
+ mov ah,9
+ int 21h 
+ 
+ 
+           mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+ 
+ 
+ 
+ 
+  mov ax,@data
+ mov ds,ax
+ mov dl,hobby
+ mov dx,offset hobby
+ mov ah,9
+ int 21h 
+ 
+          mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+ 
+ 
+ 
+ 
+  mov ax,@data
+ mov ds,ax
+ mov dl,exp
+ mov dx,offset exp
+ mov ah,9
+ int 21h 
+ 
+ 
+          mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+ 
+ 
+ 
+  mov ax,@data
+ mov ds,ax
+ mov dl,ref
+ mov dx,offset ref
+ mov ah,9
+ int 21h           
+          
+          
+          
+          
+         mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h   
+  
+ 
+  
+  
+    
+    mov ah,4ch
+    int 21h
+    main endp                                                  +
+    end main
+.model small
+.stack 100h
+.data 
+n DB      'char in lower case  $'  
+cha DB      'upper case  $' 
+
+
+
+
+
+
+
+
+.code
+main proc 
+ mov ax,@data
+ mov ds,ax
+ mov dl,n
+ mov dx,offset n
+ mov ah,9
+ int 21h
+          mov ah,1
+          int 21h 
+          mov bl,al
+          
+         
+            mov dl, 10
+          mov ah ,2
+          int 21h
+    
+            mov dl, 13
+          mov ah ,2
+          int 21h 
+ 
+          
+          
+          
+  
+  mov ax,@data
+ mov ds,ax
+ mov dl,ch
+ mov dx,offset cha
+ mov ah,9
+ int 21h 
+ 
+          
+          
+           sub bl,32
+          mov dl,bl
+          mov ah,02
+          int 21h
+          
+ 
+ 
+ 
+
+           
+  
+ 
+  
+  
+    
+    mov ah,4ch
+    int 21h
+    main endp                                                  +
+    end main

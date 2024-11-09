@@ -1,0 +1,194 @@
+.model small
+.stack 100h
+.data
+intro DB 'Hello, my name is Almeerah.$'
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+
+    mov dx, offset intro
+    mov ah, 9
+    int 21h
+
+    call space
+
+    mov ah, 4Ch    ; Exit program
+    int 21h
+main endp
+
+space proc
+    mov dl, 10
+    mov ah, 2
+    int 21h
+    mov dl, 13
+    mov ah, 2
+    int 21h
+    ret
+space endp
+end main
+
+
+Task 2
+
+.model small
+.stack 100h
+.data
+X DW ?
+Y DW ?
+Z DW ?
+result DW ?
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+
+    call solve_expression
+
+    ; Display result logic here
+
+    mov ah, 4Ch
+    int 21h
+main endp
+
+solve_expression proc
+    mov ax, X
+    add ax, Y
+    sub ax, Z
+    dec ax         ; Subtract 1
+    mov result, ax
+    ret
+solve_expression endp
+end main
+
+task 3
+
+.model small
+.stack 100h
+.data
+num1 DW ?
+num2 DW ?
+num3 DW ?
+result DW ?
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+
+    ; Input num1, num2, num3 (replace with input logic)
+    ; Assume the values are already stored in num1, num2, num3
+
+    call multiply_three
+
+    ; Display result logic here
+
+    mov ah, 4Ch
+    int 21h
+main endp
+
+multiply_three proc
+    mov ax, num1
+    mul num2
+    mul num3
+    mov result, ax
+    ret
+multiply_three endp
+end main
+
+
+task 4 
+.model small
+.stack 100h
+.data
+num1 DW ?
+num2 DW ?
+result DW ?
+prompt1 DB 'Enter the first number: $'
+prompt2 DB 'Enter the second number: $'
+sumMsg DB 'Sum: $'
+subMsg DB 'Difference: $'
+mulMsg DB 'Product: $'
+divMsg DB 'Quotient: $'
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+
+    ; Prompt and input first number
+    lea dx, prompt1
+    mov ah, 9
+    int 21h
+    call read_num
+    mov num1, ax
+
+    ; Prompt and input second number
+    lea dx, prompt2
+    mov ah, 9
+    int 21h
+    call read_num
+    mov num2, ax
+
+    ; Call addition function
+    call addition
+    call print_result
+
+    ; Call subtraction function
+    call subtraction
+    call print_result
+
+    ; Call multiplication function
+    call multiplication
+    call print_result
+
+    ; Call division function (handle divide by zero)
+    call division
+    call print_result
+
+    mov ah, 4Ch
+    int 21h
+main endp
+
+read_num proc
+    
+    ret
+read_num endp
+
+addition proc
+    mov ax, num1
+    add ax, num2
+    mov result, ax
+    lea dx, sumMsg
+    ret
+addition endp
+
+subtraction proc
+    mov ax, num1
+    sub ax, num2
+    mov result, ax
+    lea dx, subMsg
+    ret
+subtraction endp
+
+multiplication proc
+    mov ax, num1
+    mul num2
+    mov result, ax
+    lea dx, mulMsg
+    ret
+multiplication endp
+
+division proc
+    mov ax, num1
+    mov dx, 0
+    div num2
+    mov result, ax
+    lea dx, divMsg
+    ret
+division endp
+
+print_result proc
+   
+    ret
+print_result endp
+end main
+
